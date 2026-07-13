@@ -1,0 +1,48 @@
+---
+layout: base.njk
+title: "About — simple thoughts"
+description: "About simple thoughts and its author."
+permalink: /about/
+---
+<main class="container">
+
+  <div class="page-intro" style="padding-bottom:0;">
+    <h1>About</h1>
+  </div>
+
+  <section class="about-hero">
+    <div class="about-photo">
+      <img src="{{ site.about.photo }}" alt="">
+    </div>
+    <div class="about-copy">
+      {% for para in site.about.intro %}
+      <p>{{ para }}</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2>About the author</h2>
+    <div class="author-row">
+      <div class="author-avatar">
+        <img src="{{ site.author.avatar }}" alt="Portrait of {{ site.author.name }}">
+      </div>
+      <div>
+        <p class="author-name">{{ site.author.name }}</p>
+        <p class="author-role">{{ site.author.role }}</p>
+        <p class="author-bio">{{ site.author.bio }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2>Elsewhere</h2>
+    <div class="elsewhere-links">
+      {% for link in site.elsewhere %}
+      {% if not loop.first %}<span>/</span>{% endif %}
+      <a href="{{ link.url }}">{{ link.label }}</a>
+      {% endfor %}
+    </div>
+  </section>
+
+</main>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title or site.title }}</title>
+<meta name="description" content="{{ description or excerpt or site.tagline }}">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="site-title">// {{ site.title }}</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>/about</a>
+      <a href="/categories/"{% if page.url == "/categories/" %} aria-current="page"{% endif %}>/archive</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">&#9776;</button>
+  </div>
+</header>
+
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+  <ul>
+    <li><a href="/about/">/about</a></li>
+    <li><a href="/categories/">/archive</a></li>
+  </ul>
+</nav>
+
+{{ content | safe }}
+
+<footer class="site-footer">
+  <div class="container">
+    <span>&copy; {{ buildYear }} {{ site.title }}</span>
+    <span>Built with care, not clutter.</span>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+{% if page.url == "/categories/" %}<script src="/assets/js/categories.js"></script>{% endif %}
+</body>
+</html>

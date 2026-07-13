@@ -1,0 +1,44 @@
+---
+layout: base.njk
+title: "Categories — simple thoughts"
+description: "Browse all posts on simple thoughts by topic."
+permalink: /categories/
+---
+<main class="container">
+
+  <div class="page-intro">
+    <h1>Categories</h1>
+    <p>Browse all posts by topics that matter.</p>
+  </div>
+
+  <section class="filters">
+    <div class="search-field">
+      <span class="icon">&#9906;</span>
+      <input type="search" id="search-input" placeholder="Search posts..." aria-label="Search posts">
+    </div>
+
+    <p class="filter-label">Filter by tags</p>
+    <div class="tag-filters" id="tag-filters" role="group" aria-label="Filter by tag">
+      <button type="button" data-tag="all" aria-pressed="true">/ All</button>
+      {% for tag in collections.posts | uniqueTags %}
+      <button type="button" data-tag="{{ tag | lower }}" aria-pressed="false">/ {{ tag }}</button>
+      {% endfor %}
+    </div>
+
+    <p class="results-count"><span id="results-count">{{ collections.posts.length }}</span> posts found</p>
+  </section>
+
+  <section class="post-grid" id="post-grid">
+    {% for post in collections.posts %}
+    <a class="grid-item" href="{{ post.url }}" data-tags="{{ post.data.tags | tagList }}" data-title="{{ post.data.title | lower }}">
+      <div class="thumb"><img src="{{ post.data.image }}" alt="{{ post.data.imageAlt }}"></div>
+      <p class="g-meta">{{ post.date | readableDate }}</p>
+      <h3>{{ post.data.title }}</h3>
+      <p class="g-read">{{ post.data.readTime }} min read</p>
+    </a>
+    {% endfor %}
+  </section>
+
+  <p class="no-results" id="no-results">No posts match your search.</p>
+
+</main>

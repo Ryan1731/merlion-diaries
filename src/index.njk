@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: "simple thoughts — a quiet journal"
+permalink: /
+---
+<main class="container">
+
+  <div class="page-intro">
+    <p>{{ site.tagline }}</p>
+  </div>
+
+  <section class="post-list">
+    {% for post in collections.posts %}
+    <article class="post-row">
+      <a href="{{ post.url }}" class="post-thumb">
+        <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt }}">
+      </a>
+      <div>
+        <p class="post-meta">{{ post.date | readableDate }}</p>
+        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <p class="post-excerpt">{{ post.data.excerpt }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+
+</main>

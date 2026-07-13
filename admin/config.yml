@@ -1,0 +1,65 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Uses Netlify's Git Gateway, so no separate API keys are needed.
+# See the README for the one-time setup steps in your Netlify dashboard.
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "src/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    identifier_field: "title"
+    summary: "{{date}} — {{title}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Reading time (minutes)", name: "readTime", widget: "number", value_type: "int", default: 4 }
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        options: ["Life", "Thoughts", "Writing", "Nature", "Travel", "Minimalism", "Work"]
+      - { label: "Featured image", name: "image", widget: "image" }
+      - { label: "Featured image alt text", name: "imageAlt", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "Shown on the home page and categories grid." }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "about"
+    label: "About page"
+    files:
+      - name: "about"
+        label: "About page"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Site title", name: "title", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - label: "Author"
+            name: "author"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text" }
+              - { label: "Avatar", name: "avatar", widget: "image" }
+          - label: "About section"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Intro paragraphs", name: "intro", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+          - label: "Elsewhere links"
+            name: "elsewhere"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
