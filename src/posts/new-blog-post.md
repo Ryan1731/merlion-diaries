@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: New Blog Post
+title: My firsg blog post
 date: 2026-07-13
 readTime: 4
 tags:
