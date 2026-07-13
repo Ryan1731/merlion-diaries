@@ -1,19 +1,12 @@
 ---
 layout: post.njk
-title: My firsg blog post
+title: My first blog post
 date: 2026-07-13
 readTime: 4
 tags:
   - Life
 image: /assets/images/venti-views.jpg
 imageAlt: Mountain
-excerpt: The life in the mountains
+excerpt: The beginning of a journey.
 ---
-This is the body text of the blog post.
-
-
-
-1. Life
-2. in
-3. the 
-4. mountains
+Hey guys! This is my first blog post.
