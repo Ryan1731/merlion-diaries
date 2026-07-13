@@ -4,18 +4,24 @@
   "author": {
     "name": "Ryan Tan",
     "role": "Writer & Thinker",
-    "bio": "I'm a writer who enjoys slow mornings, long walks, and thinking about simple things deeply.",
-    "avatar": "/assets/images/ryanavatar.svg"
+    "bio": "Ryan is a curious writer with a passion for learning and exploring a wide range of topics. From technology and design to science, history, and everyday life, he enjoys breaking down complex ideas into simple, engaging articles that are easy to understand. Through this blog, he shares insights, discoveries, and thoughts with readers who love learning something new.",
+    "avatar": "/assets/images/ryan-portrait.png"
   },
   "about": {
-    "photo": "/assets/images/cup1.svg",
+    "photo": "/assets/images/scenery.jpg",
     "intro": [
       "Simple Thoughts is a space for quiet notes on life, thinking, and everything in between.",
       "I write about the small moments, the lessons they teach, and the questions that stay with us."
     ]
   },
   "elsewhere": [
-    { "label": "Notes", "url": "#" },
-    { "label": "Journal", "url": "#" }
+    {
+      "label": "Notes",
+      "url": "#"
+    },
+    {
+      "label": "Journal",
+      "url": "#"
+    }
   ]
 }
