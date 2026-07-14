@@ -204,7 +204,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .post-row {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 550px 1fr;
   gap: var(--space-5);
   padding: var(--space-4) 0;
   border-top: 1px solid var(--rule);
@@ -218,6 +218,13 @@ ul { list-style: none; margin: 0; padding: 0; }
 .post-row .post-thumb {
   overflow: hidden;
   aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 781px) {
+  .post-row .post-thumb {
+    height: 240px;
+    aspect-ratio: auto;
+  }
 }
 
 .post-row .post-thumb img {
